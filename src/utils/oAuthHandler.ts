@@ -74,8 +74,8 @@ export async function requestTokenWithAuthCode(
       },
     })
     .then(resp => {
-      const { expires_in, access_token, refresh_token } = resp.data
-      return { expiryTime: expires_in, accessToken: access_token, refreshToken: refresh_token }
+      const { expires_in, access_token_two, refresh_token_two } = resp.data
+      return { expiryTime: expires_in, accessToken: access_token_two, refreshToken: refresh_token_two }
     })
     .catch(err => {
       const { error, error_description, error_uri } = err.response.data

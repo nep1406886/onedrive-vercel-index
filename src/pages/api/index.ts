@@ -53,8 +53,8 @@ export async function getAccessToken(): Promise<string> {
   body.append('client_id', apiConfig.clientId)
   body.append('redirect_uri', apiConfig.redirectUri)
   body.append('client_secret', clientSecret)
-  body.append('refresh_token', refreshToken)
-  body.append('grant_type', 'refresh_token')
+  body.append('refresh_token_two', refreshToken)
+  body.append('grant_type', 'refresh_token_two')
 
   const resp = await axios.post(apiConfig.authApi, body, {
     headers: {
@@ -62,15 +62,15 @@ export async function getAccessToken(): Promise<string> {
     },
   })
 
-  if ('access_token' in resp.data && 'refresh_token' in resp.data) {
-    const { expires_in, access_token, refresh_token } = resp.data
+  if ('access_token_two' in resp.data && 'refresh_token_two' in resp.data) {
+    const { expires_in, access_token_two, refresh_token_two } = resp.data
     await storeOdAuthTokens({
-      accessToken: access_token,
+      accessToken: access_token_two,
       accessTokenExpiry: parseInt(expires_in),
-      refreshToken: refresh_token,
+      refreshToken: refresh_token_two,
     })
     console.log('Fetch new access token with stored refresh token.')
-    return access_token
+    return access_token_two
   }
 
   return ''
@@ -201,7 +201,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const accessToken = await getAccessToken()
 
-  // Return error 403 if access_token is empty
+  // Return error 403 if access_token_two is empty
   if (!accessToken) {
     res.status(403).json({ error: 'No access token.' })
     return
