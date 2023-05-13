@@ -58,8 +58,8 @@ export default function OAuthStep1() {
             <p className="py-1">
               <Trans>
                 Authorisation is required as no valid{' '}
-                <code className="font-mono text-sm underline decoration-pink-600 decoration-wavy">access_token_two</code> or{' '}
-                <code className="font-mono text-sm underline decoration-green-600 decoration-wavy">refresh_token_two</code>{' '}
+                <code className="font-mono text-sm underline decoration-pink-600 decoration-wavy">access_token</code> or{' '}
+                <code className="font-mono text-sm underline decoration-green-600 decoration-wavy">refresh_token</code>{' '}
                 is present on this deployed instance. Check the following configurations before proceeding with
                 authorising onedrive-vercel-index with your own Microsoft account.
               </Trans>

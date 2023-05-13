@@ -165,7 +165,7 @@ export default function OAuthStep3({ accessToken, expiryTime, refreshToken, erro
                     <li>
                       <FontAwesomeIcon icon={['far', 'check-circle']} className="text-green-500" />{' '}
                       <span>
-                        {t('Acquired access_token_two: ')}
+                        {t('Acquired access_token: ')}
                         <code className="font-mono text-sm opacity-80">{`${accessToken.substring(0, 60)}...`}</code>
                       </span>
                     </li>
@@ -174,7 +174,7 @@ export default function OAuthStep3({ accessToken, expiryTime, refreshToken, erro
                     <li>
                       <FontAwesomeIcon icon={['far', 'check-circle']} className="text-green-500" />{' '}
                       <span>
-                        {t('Acquired refresh_token_two: ')}
+                        {t('Acquired refresh_token: ')}
                         <code className="font-mono text-sm opacity-80">{`${refreshToken.substring(0, 60)}...`}</code>
                       </span>
                     </li>
